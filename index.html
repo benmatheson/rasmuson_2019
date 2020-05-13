@@ -1,0 +1,144 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+
+        <!-- <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet"> -->
+
+        <!-- Place favicon.ico in the root directory -->
+
+        <!-- <link rel="stylesheet" href="css/normalize.css"> -->
+        <link rel="stylesheet" href="css/main.css">
+        <!-- <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' /> -->
+
+        <!-- da new stuff -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/0.53.1/mapbox-gl.css" />
+        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/0.53.1/mapbox-gl-dev.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mapbox-gl/0.53.1/mapbox-gl.js"></script>
+ 
+        <!-- <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script> -->
+ <!-- <script src='data/ras_ak_geo.json'></script> -->
+ <!-- <script src='data/ras_ak_geo_6_21.json'></script> -->
+ <!-- <script src='data/ras_ak_geo_3_24.json'></script> -->
+ <!-- <script src='data/ras_ak_geo_4_6.json'></script> -->
+ <!-- <script src='data/ras_ak_geo_3_30.json'></script> -->
+ <script src='data/ras_ak_geo_5_07.json'></script>
+    
+
+
+    </head>
+    <body>
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+
+<!-- 
+Rasmuson Foundation
+Our Grantmaking in 2017
+Hover over a location to learn more about the work of each grant recipient. -->
+
+
+    <!-- <div class="mapTitle"> -->
+                <!-- <p class="mapTitleText">Explore Our 2017 Grantmaking -->
+<!-- </p> -->
+      <!--           <p class=mapSubText> Hover over or tap each dot to learn more about the work of our grant recipients in 2017.
+
+</p> -->
+           <!--  </div> -->
+        <div class="map" id="map1">
+            
+           <div class="statewide">
+
+<!-- <div class="popupCloseButton" id="popupCloseButtonId">X</div> -->
+<div class="statewideInner"></div>
+
+           </div>
+
+
+            <div class="mapButtonContainer">
+                    <button class='mapButton center' onclick="allGrants()">View All Grants </button>
+
+
+                        <button class='mapButton'onclick="t2()"><span style="background-color: #72cac3" class="dot"> </span><span class="keyTitle">Large grants</span><br /> <span class="ital">(Tier 2, $25,000 or more)</span>
+                         
+</button>
+
+
+                    <button class='mapButton' onclick="t1()">   <span style="background-color: #4789c8" class="dot"> </span> <span class="keyTitle"></span>Small grants</span> <br /><span class="ital">(Tier 1, $25,000 or less)</span>
+                     
+
+                        <button class='mapButton' onclick="iaa()"><span style="background-color: #e09641" class="dot">   </span><span class="keyTitle">Individual Artist Awards</span>
+                            
+</button>
+                    <button class='mapButton' onclick="sabbatical()">                     
+                        <span style="background-color: #a5c6be" class="dot"> </span><span class="keyTitle">Sabbaticals</span></button>
+
+                        <button class='mapButton' onclick="initiatives()">                     
+                            <!-- <span style="background-color: #c6a5b0" class="dot"> </span>Foundation Initiatives</button> -->
+                            <span style="background-color: #dac026" class="dot"> </span><span class="keyTitle">Foundation Initiatives</span></button>
+    
+
+
+ <button class='mapButton center' id="statewideId" onclick="statewide()">                     
+                 Statewide</button>
+      
+
+            </div>  
+
+<!-- 
+      
+                  <div class="sizeKey">   
+
+<p class="sizeKeyTitle">
+        Grants per Community
+
+</p>
+   
+
+                <span style="background-color: rgba(0,0,0,0)" class="dot border"> </span>
+                <span style="background-color: rgba(0,0,0,0)" class="dot dotMedium border"> </span>
+              <span style="background-color: rgba(0,0,0,0)" class="dot dotBig border"> </span>
+
+   <p class="sizeKeyText">
+                1    2-9    10+       </p>
+          </div>  -->
+
+
+<!--         <div class="map" id="map2">
+
+
+            <div class="mapTitle"><p class="mapTitleText">Rasmuson Foundation 2017 Individual Artist and Sabbatical Awards</p>
+                <p class=mapSubText> Hover over a location to learn more about the work of each artist and sabbatical recipient.</p>
+            </div>
+</div> -->
+
+
+        <!-- <script src="js/vendor/modernizr-3.5.0.min.js"></script> -->
+        <!-- <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script> -->
+        <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script> -->
+        <!-- <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script> -->
+        <!-- <script src="js/plugins.js"></script> -->
+        <script src="js/main.js"></script>
+        <!-- <script type="text/babel" src="js/main.js"></script> -->
+        <!-- <script src="build/main.bundle.js"></script> -->
+
+        <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+        <!-- <script>
+            window.ga=function(){ga.q.push(arguments)};ga.q=[];ga.l=+new Date;
+            ga('create','UA-XXXXX-Y','auto');ga('send','pageview')
+        </script>
+        <script src="https://www.google-analytics.com/analytics.js" async defer></script> -->
+
+
+
+    </body>
+</html>
