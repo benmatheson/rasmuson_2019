@@ -1206,21 +1206,23 @@ default:
 
             }
       
+
+            else if(currentProgram == "Foundation Initiatives")
+            // d.ProjectLocationMatch == projLoc &&
+       {currentData = ras_ak.filter(d=> d.Program == featProgram &&  d.ProjectLocationMatch != "Nationwide" )
+         
+    currentData.sort((a, b) => a.ProjectLocation.localeCompare(b.ProjectLocation))
+
+
+       } 
+
               else
               // d.ProjectLocationMatch == projLoc &&
-         {currentData = ras_ak.filter(d=> d.Program == featProgram &&  d.ProjectLocationMatch != "Nationwide"
+         {currentData = ras_ak.filter(d=> d.Program == featProgram &&  d.ProjectLocationMatch != "Nationwide" && d.ProjectLocationMatch == projLoc
           )
-             console.log("current unsorted");
-             console.log(currentData);
-
-              // currentData.sort((a,b)=>a.OrganizationName-b.OrganizationName)
-              // currentData=  currentData.sort((a,b)=>a.OrganizationName.toUpperCase()-b.OrganizationName.toUpperCase())
-   
-
+           
       currentData.sort((a, b) => a.ProjectLocation.localeCompare(b.ProjectLocation))
 
-    // console.log("current sorted");
-    //          console.log(currentData);
 
          } 
 
