@@ -1217,10 +1217,10 @@ default:
               // currentData=  currentData.sort((a,b)=>a.OrganizationName.toUpperCase()-b.OrganizationName.toUpperCase())
    
 
-      currentData.sort((a, b) => a.ProjectLocation.localeCompare(b.ProjectLocation))
+      currentData.sort((a, b) => a.OrganizationName.localeCompare(b.OrganizationName))
 
-    // console.log("current sorted");
-    //          console.log(currentData);
+    console.log("current sorted");
+             console.log(currentData);
 
          } 
 
@@ -1259,25 +1259,6 @@ default:
         //   <h3>Project Location: </h3>${projLoc.substr(-2,20)}  <br /> `            
       
 
-
-        /////in here we should seperate into stateide, sitka, and anchorage by using a filter. 
-
-var currentDataStatewide = currentData.filter(d=>d.ProjectLocation == "Statewide" && d.OrganizationName != "The Foraker Group")
-var currentDataSitka = currentData.filter(d=>d.ProjectLocation == "Sitka")
-var currentDataAnchorage= currentData.filter(d=>d.ProjectLocation == "Anchorage")
-
-console.log('the statesidea')
-console.log(currentDataStatewide)
-
-
-console.log('the anchorage')
-console.log(currentDataAnchorage)
-
-
-console.log('the sitka')
-console.log(currentDataSitka)
-
-
            var popMultiple = currentData.map(function (el) {
 
 return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}- <span class="money">$${el.AwardAmount.toLocaleString()}</span></h4>
@@ -1286,48 +1267,8 @@ return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}- <span class="money">$${el.Aw
 
                 })
 
-
-           var popMultipleStatewide = currentDataStatewide.map(function (el) {
-
-            return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}- <span class="money">$${el.AwardAmount.toLocaleString()}</span></h4>
-             <p class="indent">${el.Description}</p>
-                     <br />`
-            
-                            })
-
-
-
-           var popMultipleSitka = currentDataSitka.map(function (el) {
-
-            return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}- <span class="money">$${el.AwardAmount.toLocaleString()}</span></h4>
-             <p class="indent">${el.Description}</p>
-                     <br />`
-            
-                            })
-
-
-
-
-           var popMultipleAnchorage = currentDataAnchorage.map(function (el) {
-
-            return `<h4> ${el.OrganizationName+'\u00A0\u00A0'}- <span class="money">$${el.AwardAmount.toLocaleString()}</span></h4>
-             <p class="indent">${el.Description}</p>
-                     <br />`
-            
-                            })
-
-
-
-
-
-
-
-
-
                 var popDiv = `<h4 id="loc" style="background-color:${bannerColor}">${projLoc.substr(0,projLoc.length-0)}</h4><div class="pop">${popMultiple.join('')}</div>`
-                // var popDivFound = `<h4 id="loc" style="background-color:${bannerColor}">${projLoc.substr(0,projLoc.length-0)}</h4><div class="pop">${popMultiple.slice(0,3).join('')}</div><h4 id="loc" style="background-color:${bannerColor}">Statewide</h4><div class="pop">${popMultiple.slice(3).join('')}</div>`
-                var popDivFound = (projLoc == "Anchorage") ? `<h4 id="loc" style="background-color:${bannerColor}">${projLoc.substr(0,projLoc.length-0)}</h4><div class="pop">${popMultipleAnchorage.join('')}</div><h4 id="loc" style="background-color:${bannerColor}">Statewide</h4><div class="pop">${popMultipleStatewide.join('')}</div>` : `<h4 id="loc" style="background-color:${bannerColor}">${projLoc.substr(0,projLoc.length-0)}</h4><div class="pop">${popMultipleSitka.join('')}</div>` 
-
+                var popDivFound = `<h4 id="loc" style="background-color:${bannerColor}">${projLoc.substr(0,projLoc.length-0)}</h4><div class="pop">${popMultiple.slice(0,3).join('')}</div><h4 id="loc" style="background-color:${bannerColor}">Statewide</h4><div class="pop">${popMultiple.slice(3).join('')}</div>`
 
 
 // <div style="background-color:${bannerColor}" class="popUpLine"></div>

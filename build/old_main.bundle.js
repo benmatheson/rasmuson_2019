@@ -7,7 +7,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 // var akColor= "rgba(0,0,0,.14)";
 var akColor = "rgba(0,0,0,.08)";
 ;
-mapboxgl.accessToken = 'pk.eyJ1IjoiYmVubWF0aGVzb24iLCJhIjoiY2thNHFxZzRpMHVsdzNtbG1janZwbnZlZiJ9.ZaqG7iEK5TyZFHvuvGohRQ'; // var outerDiv = document.getElementById("map1");
+mapboxgl.accessToken = 'pk.eyJ1IjoiYmVubWF0aGVzb24iLCJhIjoiY2lmZDhyZXVxNTI5eHNtbHgyOTYwbHJtMyJ9.Ch8JQXvunpUrv6tGpeJMCA'; // var outerDiv = document.getElementById("map1");
 // console.log(outerDiv)
 // outerDiv.ontouchmove = touchmo;
 // function touchmo (e){
@@ -136,7 +136,7 @@ map.on('load', function () {
       // 'circle-stroke-color': "rgba(0,0,0,.00)",
       // color circles by ethnicity, using a match expression
       // https://www.mapbox.com/mapbox-gl-js/style-spec/#expressions-match
-      'circle-color': ['match', ['get', 'Program'], 'Small Grants', '#4789c8 ', 'Large Grants', '#72cac3', 'Individual Artist Awards', '#e09641', 'Foundation Initiatives', '#a5c6be', 'Sabbatical', '#a5c6be',
+      'circle-color': ['match', ['get', 'Program'], 'Small Grants', '#4789c8 ', 'Large Grants', '#72cac3', 'Individual Artist Award', '#e09641', 'Foundation Initiatives', '#a5c6be', 'Sabbatical', '#a5c6be',
       /* other */
       'purple'],
       //             "circle-opacity": ["case",
@@ -151,12 +151,12 @@ map.on('load', function () {
     }
   });
   map.addLayer({
-    "id": "cities",
+    "id": "cities1",
     "type": "symbol",
     "source": "cities",
     "interactive": "false",
     "layout": _defineProperty({
-      "text-field": "{Community Name}",
+      "text-field": "{community}",
       "text-offset": [1, 5.5],
       "text-font": ["Arial Unicode MS Bold", "Open Sans Bold"],
       // "text-font": ["Fira Sans Regular"],
@@ -213,7 +213,7 @@ map.on('load', function () {
 var currentProgram = 'allPrograms';
 
 function allGrants() {
-  map.setFilter('ras2', ['in', 'Program', 'Small Grants', 'Large Grants', 'Sabbatical', "Individual Artist Awards"]);
+  map.setFilter('ras2', ['in', 'Program', 'Small Grants', 'Large Grants', 'Sabbatical', "Individual Artist Award"]);
   map.setPaintProperty('rasAk', 'fill-pattern', null);
   currentProgram = 'allPrograms';
   console.log("CURR PROG");
@@ -222,7 +222,7 @@ function allGrants() {
   map.setPaintProperty('rasAk', 'fill-pattern', null); // map.setPaintProperty('ras2',  'circle-color', "rgba(0,0,0,.5)");
   // map.setPaintProperty('ras2',  'circle-stroke-color', "rgba(0,0,0,.8)");
 
-  map.setPaintProperty('ras2', 'circle-color', ['match', ['get', 'Program'], 'Small Grants', '#4789c8 ', 'Large Grants', '#72cac3', 'Individual Artist Awards', '#e09641', 'Foundation Initiated', '#a5c6be', 'Sabbatical', '#a5c6be',
+  map.setPaintProperty('ras2', 'circle-color', ['match', ['get', 'Program'], 'Small Grants', '#4789c8 ', 'Large Grants', '#72cac3', 'Individual Artist Award', '#e09641', 'Foundation Initiated', '#a5c6be', 'Sabbatical', '#a5c6be',
   /* other */
   'green']);
 }
@@ -235,7 +235,7 @@ function t1() {
   map.setPaintProperty('rasAk', 'fill-pattern', null); // console.log("CURR PROG");
   // console.log(currentProgram);
 
-  map.setPaintProperty('ras2', 'circle-color', ['match', ['get', 'Program'], 'Small Grants', '#4789c8', 'Large Grants', '#72cac3', 'Individual Artist Awards', '#e09641', 'Foundation Initiated', '#a5c6be', 'Sabbatical', '#a5c6be',
+  map.setPaintProperty('ras2', 'circle-color', ['match', ['get', 'Program'], 'Small Grants', '#4789c8', 'Large Grants', '#72cac3', 'Individual Artist Award', '#e09641', 'Foundation Initiated', '#a5c6be', 'Sabbatical', '#a5c6be',
   /* other */
   'green']);
 }
@@ -247,19 +247,19 @@ function t2() {
   map.setPaintProperty('rasAk', 'fill-pattern', null); // console.log("CURR PROG");
   // console.log(currentProgram);
 
-  map.setPaintProperty('ras2', 'circle-color', ['match', ['get', 'Program'], 'Small Grants', '#4789c8 ', 'Large Grants', '#72cac3', 'Individual Artist Awards', '#e09641', 'Foundation Initiated', '#a5c6be', 'Sabbatical', '#a5c6be',
+  map.setPaintProperty('ras2', 'circle-color', ['match', ['get', 'Program'], 'Small Grants', '#4789c8 ', 'Large Grants', '#72cac3', 'Individual Artist Award', '#e09641', 'Foundation Initiated', '#a5c6be', 'Sabbatical', '#a5c6be',
   /* other */
   'green']);
 }
 
 function iaa() {
-  map.setFilter('ras2', ['in', 'Program', 'Individual Artist Awards']);
-  currentProgram = "Individual Artist Awards"; // console.log("CURR PROG");
+  map.setFilter('ras2', ['in', 'Program', 'Individual Artist Award']);
+  currentProgram = "Individual Artist Award"; // console.log("CURR PROG");
   // console.log(currentProgram);
 
   map.setPaintProperty('rasAk', 'fill-color', akColor);
   map.setPaintProperty('rasAk', 'fill-pattern', null);
-  map.setPaintProperty('ras2', 'circle-color', ['match', ['get', 'Program'], 'Small Grants', '#4789c8 ', 'Large Grants', '#72cac3', 'Individual Artist Awards', '#e09641', 'Foundation Initiated', '#a5c6be', 'Sabbatical', '#a5c6be',
+  map.setPaintProperty('ras2', 'circle-color', ['match', ['get', 'Program'], 'Small Grants', '#4789c8 ', 'Large Grants', '#72cac3', 'Individual Artist Award', '#e09641', 'Foundation Initiated', '#a5c6be', 'Sabbatical', '#a5c6be',
   /* other */
   'green']);
 }
@@ -270,14 +270,13 @@ function sabbatical() {
   map.setPaintProperty('rasAk', 'fill-pattern', null);
   map.setPaintProperty('rasAk', 'fill-color', akColor); // console.log(currentProgram);
 
-  map.setPaintProperty('ras2', 'circle-color', ['match', ['get', 'Program'], 'Small Grants', '#4789c8 ', 'Large Grants', '#72cac3', 'Individual Artist Awards', '#e09641', 'Foundation Initiated', '#a5c6be', 'Sabbatical', '#a5c6be',
+  map.setPaintProperty('ras2', 'circle-color', ['match', ['get', 'Program'], 'Small Grants', '#4789c8 ', 'Large Grants', '#72cac3', 'Individual Artist Award', '#e09641', 'Foundation Initiated', '#a5c6be', 'Sabbatical', '#a5c6be',
   /* other */
   'green']);
 }
 
 function initiatives() {
-  map.setFilter('ras2', ['in', 'Program', 'Foundation Initiatives']); // map.setFilter('ras2', ['in', 'Program', 'Program Related Investments']);
-
+  map.setFilter('ras2', ['in', 'Program', 'Foundation Initiatives']);
   currentProgram = "Foundation Initiatives";
   document.querySelector('.statewide').classList.remove("vis");
   console.log("PAINGINT"); // map.setPaintProperty('rasAk', 'fill-color', "#c6a5b0");
@@ -292,7 +291,7 @@ function initiatives() {
   // console.log("CURR PROG");
   // console.log(currentProgram);
 
-  map.setPaintProperty('ras2', 'circle-color', ['match', ['get', 'Program'], 'Small Grants', '#4789c8 ', 'Large Grants', '#72cac3', 'Individual Artist Awards', '#e09641', 'Foundation Initiatives', '#dac026', 'Sabbatical', '#a5c6be',
+  map.setPaintProperty('ras2', 'circle-color', ['match', ['get', 'Program'], 'Small Grants', '#4789c8 ', 'Large Grants', '#72cac3', 'Individual Artist Award', '#e09641', 'Foundation Initiatives', '#dac026', 'Sabbatical', '#a5c6be',
   /* other */
   'green']);
 }
@@ -311,7 +310,7 @@ function statewide() {
   //                 ['get', 'Program'],
   //                 'Tier 1', '#4789c8 ',
   //                 'Tier 2', '#72cac3',
-  //                 'Individual Artist Awardss', '#e09641',
+  //                 'Individual Artist Award', '#e09641',
   //                 'Foundation Initiated', '#a5c6be',
   //                 'Sabbatical', '#a5c6be',
   //                 /* other */ 'green'
@@ -441,7 +440,7 @@ function hoverAway() {
 //   case "Sabbatical":
 //   bannerColor="#a5c6be";
 //   break;
-//     case "Individual Artist Awardss":
+//     case "Individual Artist Award":
 //   bannerColor="#e09641";
 //   break;
 // default: 
@@ -552,7 +551,7 @@ map.on('click', 'ras2', function (e) {
       bannerColor = "#a5c6be";
       break;
 
-    case "Individual Artist Awardss":
+    case "Individual Artist Award":
       bannerColor = "#e09641";
       break;
 
@@ -626,8 +625,6 @@ map.on('mousemove', 'ras2', function (e) {
   //imortant
   var projLoc = e.features[0].properties['ProjectLocationMatch'];
   var featProgram = e.features[0].properties.Program;
-  console.log("featProgram");
-  console.log(featProgram);
   var currentData; // console.log("PROJEDLOC")
   // console.log(projLoc)
 
@@ -646,7 +643,7 @@ map.on('mousemove', 'ras2', function (e) {
       bannerColor = "#a5c6be";
       break;
 
-    case "Individual Artist Awardss":
+    case "Individual Artist Award":
       bannerColor = "#e09641";
       break;
 
@@ -666,20 +663,19 @@ map.on('mousemove', 'ras2', function (e) {
     currentData.sort(function (a, b) {
       return a.OrganizationName.localeCompare(b.OrganizationName);
     });
-  } else // d.ProjectLocationMatch == projLoc &&
-    {
-      currentData = ras_ak.filter(function (d) {
-        return d.Program == featProgram && d.ProjectLocationMatch != "Nationwide";
-      });
-      console.log("current unsorted");
-      console.log(currentData); // currentData.sort((a,b)=>a.OrganizationName-b.OrganizationName)
-      // currentData=  currentData.sort((a,b)=>a.OrganizationName.toUpperCase()-b.OrganizationName.toUpperCase())
+  } else {
+    currentData = ras_ak.filter(function (d) {
+      return d.ProjectLocationMatch == projLoc && d.Program == featProgram;
+    });
+    console.log("current unsorted");
+    console.log(currentData); // currentData.sort((a,b)=>a.OrganizationName-b.OrganizationName)
+    // currentData=  currentData.sort((a,b)=>a.OrganizationName.toUpperCase()-b.OrganizationName.toUpperCase())
 
-      currentData.sort(function (a, b) {
-        return a.ProjectLocation.localeCompare(b.ProjectLocation);
-      }); // console.log("current sorted");
-      //          console.log(currentData);
-    } /////this is where the ALL grants is being messed up. 
+    currentData.sort(function (a, b) {
+      return a.OrganizationName.localeCompare(b.OrganizationName);
+    }); // console.log("current sorted");
+    //          console.log(currentData);
+  } /////this is where the ALL grants is being messed up. 
   // switch(expression) {
   //     case n:
   //         code block
@@ -701,38 +697,12 @@ map.on('mousemove', 'ras2', function (e) {
   // var award = e.features[0].properties['Award Amount'];
   // var popContent = `<div style="background-color:${bannerColor}" class="popUpLine"></div><div class="pop"><h3>Recipient: </h3>${projLoc.substr(-2,20)}<br />
   //   <h3>Project Location: </h3>${projLoc.substr(-2,20)}  <br /> `            
-  /////in here we should seperate into stateide, sitka, and anchorage by using a filter. 
 
-  var currentDataStatewide = currentData.filter(function (d) {
-    return d.ProjectLocation == "Statewide";
-  });
-  var currentDataSitka = currentData.filter(function (d) {
-    return d.ProjectLocation == "Sitka";
-  });
-  var currentDataAnchorage = currentData.filter(function (d) {
-    return d.ProjectLocation == "Anchorage";
-  });
-  console.log('the statesidea');
-  console.log(currentDataStatewide);
-  console.log('the anchorage');
-  console.log(currentDataAnchorage);
-  console.log('the sitka');
-  console.log(currentDataSitka);
   var popMultiple = currentData.map(function (el) {
     return "<h4> " + (el.OrganizationName + "\xA0\xA0") + "- <span class=\"money\">$" + el.AwardAmount.toLocaleString() + "</span></h4>\n <p class=\"indent\">" + el.Description + "</p>\n         <br />";
   });
-  var popMultipleStatewide = currentDataStatewide.map(function (el) {
-    return "<h4> " + (el.OrganizationName + "\xA0\xA0") + "- <span class=\"money\">$" + el.AwardAmount.toLocaleString() + "</span></h4>\n             <p class=\"indent\">" + el.Description + "</p>\n                     <br />";
-  });
-  var popMultipleSitka = currentDataSitka.map(function (el) {
-    return "<h4> " + (el.OrganizationName + "\xA0\xA0") + "- <span class=\"money\">$" + el.AwardAmount.toLocaleString() + "</span></h4>\n             <p class=\"indent\">" + el.Description + "</p>\n                     <br />";
-  });
-  var popMultipleAnchorage = currentDataAnchorage.map(function (el) {
-    return "<h4> " + (el.OrganizationName + "\xA0\xA0") + "- <span class=\"money\">$" + el.AwardAmount.toLocaleString() + "</span></h4>\n             <p class=\"indent\">" + el.Description + "</p>\n                     <br />";
-  });
-  var popDiv = "<h4 id=\"loc\" style=\"background-color:" + bannerColor + "\">" + projLoc.substr(0, projLoc.length - 0) + "</h4><div class=\"pop\">" + popMultiple.join('') + "</div>"; // var popDivFound = `<h4 id="loc" style="background-color:${bannerColor}">${projLoc.substr(0,projLoc.length-0)}</h4><div class="pop">${popMultiple.slice(0,3).join('')}</div><h4 id="loc" style="background-color:${bannerColor}">Statewide</h4><div class="pop">${popMultiple.slice(3).join('')}</div>`
-
-  var popDivFound = projLoc == "Anchorage" ? "<h4 id=\"loc\" style=\"background-color:" + bannerColor + "\">" + projLoc.substr(0, projLoc.length - 0) + "</h4><div class=\"pop\">" + popMultipleAnchorage.join('') + "</div><h4 id=\"loc\" style=\"background-color:" + bannerColor + "\">Statewide</h4><div class=\"pop\">" + popMultipleStatewide.join('') + "</div>" : "<h4 id=\"loc\" style=\"background-color:" + bannerColor + "\">" + projLoc.substr(0, projLoc.length - 0) + "</h4><div class=\"pop\">" + popMultipleSitka.join('') + "</div>"; // <div style="background-color:${bannerColor}" class="popUpLine"></div>
+  var popDiv = "<h4 id=\"loc\" style=\"background-color:" + bannerColor + "\">" + projLoc.substr(0, projLoc.length - 0) + "</h4><div class=\"pop\">" + popMultiple.join('') + "</div>";
+  var popDivFound = "<h4 id=\"loc\" style=\"background-color:" + bannerColor + "\">" + projLoc.substr(0, projLoc.length - 0) + "</h4><div class=\"pop\">" + popMultiple.slice(0, 3).join('') + "</div><h4 id=\"loc\" style=\"background-color:" + bannerColor + "\">Statewide</h4><div class=\"pop\">" + popMultiple.slice(3).join('') + "</div>"; // <div style="background-color:${bannerColor}" class="popUpLine"></div>
   // Ensure that if the map is zoomed out such that multiple
   // copies of the feature are visible, the popup appears
   // over the copy being pointed to.
@@ -906,7 +876,7 @@ map.on('mousemove', 'ras2', function (e) {
 //                 ['get', 'Program'],
 //                 'Tier 1', 'rgba(69, 178, 66, .6)',
 //                 'Tier 2', 'rgba(178, 66, 69, .5)',
-//                 'Individual Artist Awardss', '#a02ca0',
+//                 'Individual Artist Award', '#a02ca0',
 //                 'Foundation Initiated', '#3bb2d0',
 //                 'Sabbatical', 'red',
 //                 /* other */ '#ccc'
@@ -916,7 +886,7 @@ map.on('mousemove', 'ras2', function (e) {
 //             // 'circle-color': 'rgba(0,0,0,0)'
 //         },
 //       })
-// map2.setFilter('ras2', ['in', 'Program', 'Individual Artist Awardss', 'Sabbatical']);
+// map2.setFilter('ras2', ['in', 'Program', 'Individual Artist Award', 'Sabbatical']);
 //  // ["in", "class", "street_major", "street_minor", "street_limited"]
 //  map2.addLayer({
 //         "id": "cities1",
