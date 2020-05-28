@@ -395,6 +395,8 @@ map.setPaintProperty('ras2',  'circle-color',[
 function t1 () {
 
 map.setFilter('ras2', ['in', 'Program', 'Small Grants']);
+document.querySelector('.statewide').classList.remove('vis')
+popup.remove();
 
 currentProgram =  "Small Grants";
 
@@ -423,6 +425,9 @@ map.setPaintProperty('ras2',  'circle-color',[
 
 function t2() {
 map.setFilter('ras2', ['in', 'Program', 'Large Grants']);
+document.querySelector('.statewide').classList.remove('vis')
+popup.remove();
+
 
 currentProgram =  "Large Grants";
 map.setPaintProperty('rasAk', 'fill-color', akColor);
@@ -446,6 +451,9 @@ map.setPaintProperty('ras2',  'circle-color',[
 
 function iaa() {
 map.setFilter('ras2', ['in', 'Program', 'Individual Artist Awards']);
+document.querySelector('.statewide').classList.remove('vis')
+popup.remove();
+
 
 currentProgram =  "Individual Artist Awards";
 // console.log("CURR PROG");
@@ -468,6 +476,9 @@ map.setPaintProperty('ras2',  'circle-color',[
 
 function sabbatical() {
 map.setFilter('ras2', ['in', 'Program', 'Sabbatical']);
+document.querySelector('.statewide').classList.remove('vis')
+popup.remove();
+
 currentProgram =  "Sabbatical";
 map.setPaintProperty('rasAk', 'fill-pattern', null);
 
@@ -489,8 +500,12 @@ map.setPaintProperty('ras2',  'circle-color',[
 
 
 function initiatives() {
+
   map.setFilter('ras2', ['in', 'Program', 'Foundation Initiatives']);
   // map.setFilter('ras2', ['in', 'Program', 'Program Related Investments']);
+  document.querySelector('.statewide').classList.remove('vis')
+  popup.remove();
+
   currentProgram =  "Foundation Initiatives";
   
   document.querySelector('.statewide').classList.remove("vis");
@@ -528,7 +543,18 @@ console.log("loading image")
 
 
 function statewide () {
-  map.setPaintProperty('rasAk', 'fill-color', akColor);
+  // map.setPaintProperty('rasAk', 'fill-color', akColor);
+
+  map.setFilter('ras2', ['in', 'Program', 'None']);
+
+  map.loadImage('img/diag6.png', function(err, image) {
+    popup.remove();
+
+    console.log("loading image")
+      map.addImage('pattern', image);
+      map.setPaintProperty('rasAk', 'fill-pattern', "pattern");
+    
+      })
 
   // document.querySelector('.statewide').classList.contains('vis') ? document.querySelector('.statewide').classList.remove("vis") : console.log("ham")
   document.querySelector('.statewide').classList.toggle('vis')
@@ -578,10 +604,6 @@ var popMultipleState = statewideData.map(function (el) {
 // document.querySelector('.statewideInner').classList.add("vis");
 
 document.querySelector('.statewideInner').innerHTML = popDivState;
-
-
-
-
 
 
 document.querySelector(".popupCloseButton").addEventListener('click', function () {
@@ -1268,16 +1290,16 @@ var currentDataStatewide = currentData.filter(d=>d.ProjectLocation == "Statewide
 var currentDataSitka = currentData.filter(d=>d.ProjectLocation == "Sitka")
 var currentDataAnchorage= currentData.filter(d=>d.ProjectLocation == "Anchorage")
 
-console.log('the statesidea')
-console.log(currentDataStatewide)
+// console.log('the statesidea')
+// console.log(currentDataStatewide)
 
 
-console.log('the anchorage')
-console.log(currentDataAnchorage)
+// console.log('the anchorage')
+// console.log(currentDataAnchorage)
 
 
-console.log('the sitka')
-console.log(currentDataSitka)
+// console.log('the sitka')
+// console.log(currentDataSitka)
 
 
            var popMultiple = currentData.map(function (el) {
@@ -1369,7 +1391,12 @@ popup.setLngLat(coordinates)
             .addTo(map)
 
 
-projLoc !== "Anchorage" && projLoc !== "Kenai" && projLoc !== "Fairbanks" && projLoc !== "Juneau"  && projLoc !== "Wasilla"?  rem() : keep1();
+// projLoc !== "Anchorage" && projLoc !== "Kenai" && projLoc !== "Fairbanks" && projLoc !== "Juneau"  && projLoc !== "Wasilla"?  rem() : keep1();
+
+
+keep1()
+
+
 
 function rem () {
   map.on('mouseleave', 'ras2', function(g) {
