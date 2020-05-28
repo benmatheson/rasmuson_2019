@@ -329,7 +329,7 @@ position: absolute;
 display: flex;
 justify-content: space-between;
 flex-direction: column;
-top: 20px;
+/* top: 20px; */
 left: 74%;
 width: 16%;
 
@@ -638,6 +638,17 @@ font-size: 1.9rem;
 @media only screen and (max-width: 700px) {
 
 
+.fullContainer{
+
+ /* display: table-cell; */
+    /* vertical-align: bottom; */
+    /* display: flex; */
+    height: 100%;
+    width: 100%;
+    /* border: dotted green; */
+    display: flex;
+}
+
 .mapTitleText {
 
 display: none;
@@ -664,12 +675,19 @@ display: flex;
 justify-content: left;
 flex-direction: row;
 flex-wrap: wrap;
-top: 84%;
-/* bottom: 1300px; */
-left: 4px;
+/* top: 74%; */
+/* top: 10px; */
+bottom: 14px;
+left: 4px;  
 width:97%;
+height: 180px;
+align-items: flex-end;
+align-self: flex-end;
+
 
 z-index: 95;
+/* border: dotted red; */
+/* align-self: flex-end; */
 
 }
 
@@ -682,18 +700,18 @@ z-index: 95;
 
 background-color: rgba(255,255,255,.88);
 
-width: 65px;
+width: 100px;
 /*height: 30px;*/
-padding: 2px;
+padding: 4px;
 /* padding-right: 5px; */
 /*margin-top: px;*/
 margin: 2px;
 border: none;
 border-radius: 2px;
 /*font-weight: bold;*/
-height: 40px;
-font-size: .5rem;
-line-height: 98%;
+height: 50px;
+font-size: .6rem;
+line-height: 109%;
 
 /*color: pink;*/
     font-family: sans-serif;
@@ -708,8 +726,8 @@ line-height: 98%;
 
 
 .dot {
-    height: 9px;
-    width: 9px;
+    height: 8px;
+    width: 8px;
     border-radius: 50%;
     /*display: inline-block;*/
     display: block;
