@@ -278,9 +278,9 @@ map.addLayer({
             // "text-font": ["Fira Sans Regular"],
             "text-size": 12,
             "text-anchor": "bottom-right",
-            "text-offset": [3.5,.8]
+            "text-offset": [3.5,.8],
           // "text-offset-distance": "10px"
-                  // "text-allow-overlap": true,
+                  "text-allow-overlap": true,
                     // "text-ignore-placement": true
 
             // "text-weight": "bold"

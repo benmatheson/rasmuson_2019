@@ -55,6 +55,8 @@ var popup = new mapboxgl.Popup({
   closeOnClick: true
 });
 map.on('load', function () {
+  var _layout;
+
   var canv = document.querySelector(".mapboxgl-canvas"); // console.log(canv)
 
   canv.ontouchmove = canvtouchmo;
@@ -155,14 +157,14 @@ map.on('load', function () {
     "type": "symbol",
     "source": "cities",
     "interactive": "false",
-    "layout": _defineProperty({
+    "layout": (_layout = {
       "text-field": "{Community Name}",
       "text-offset": [1, 5.5],
       "text-font": ["Arial Unicode MS Bold", "Open Sans Bold"],
       // "text-font": ["Fira Sans Regular"],
       "text-size": 12,
       "text-anchor": "bottom-right"
-    }, "text-offset", [3.5, .8]),
+    }, _defineProperty(_layout, "text-offset", [3.5, .8]), _defineProperty(_layout, "text-allow-overlap", true), _layout),
     'paint': {
       // make circles larger as the user zooms from z12 to z22
       // 'circle-radius': 3,*********
@@ -229,6 +231,8 @@ function allGrants() {
 
 function t1() {
   map.setFilter('ras2', ['in', 'Program', 'Small Grants']);
+  document.querySelector('.statewide').classList.remove('vis');
+  popup.remove();
   currentProgram = "Small Grants"; // map.setPaintProperty('rasAk', 'fill-color', "white");
 
   map.setPaintProperty('rasAk', 'fill-color', akColor);
@@ -242,6 +246,8 @@ function t1() {
 
 function t2() {
   map.setFilter('ras2', ['in', 'Program', 'Large Grants']);
+  document.querySelector('.statewide').classList.remove('vis');
+  popup.remove();
   currentProgram = "Large Grants";
   map.setPaintProperty('rasAk', 'fill-color', akColor);
   map.setPaintProperty('rasAk', 'fill-pattern', null); // console.log("CURR PROG");
@@ -254,6 +260,8 @@ function t2() {
 
 function iaa() {
   map.setFilter('ras2', ['in', 'Program', 'Individual Artist Awards']);
+  document.querySelector('.statewide').classList.remove('vis');
+  popup.remove();
   currentProgram = "Individual Artist Awards"; // console.log("CURR PROG");
   // console.log(currentProgram);
 
@@ -266,6 +274,8 @@ function iaa() {
 
 function sabbatical() {
   map.setFilter('ras2', ['in', 'Program', 'Sabbatical']);
+  document.querySelector('.statewide').classList.remove('vis');
+  popup.remove();
   currentProgram = "Sabbatical";
   map.setPaintProperty('rasAk', 'fill-pattern', null);
   map.setPaintProperty('rasAk', 'fill-color', akColor); // console.log(currentProgram);
@@ -278,6 +288,8 @@ function sabbatical() {
 function initiatives() {
   map.setFilter('ras2', ['in', 'Program', 'Foundation Initiatives']); // map.setFilter('ras2', ['in', 'Program', 'Program Related Investments']);
 
+  document.querySelector('.statewide').classList.remove('vis');
+  popup.remove();
   currentProgram = "Foundation Initiatives";
   document.querySelector('.statewide').classList.remove("vis");
   console.log("PAINGINT"); // map.setPaintProperty('rasAk', 'fill-color', "#c6a5b0");
@@ -298,7 +310,14 @@ function initiatives() {
 }
 
 function statewide() {
-  map.setPaintProperty('rasAk', 'fill-color', akColor); // document.querySelector('.statewide').classList.contains('vis') ? document.querySelector('.statewide').classList.remove("vis") : console.log("ham")
+  // map.setPaintProperty('rasAk', 'fill-color', akColor);
+  map.setFilter('ras2', ['in', 'Program', 'None']);
+  map.loadImage('img/diag6.png', function (err, image) {
+    popup.remove();
+    console.log("loading image");
+    map.addImage('pattern', image);
+    map.setPaintProperty('rasAk', 'fill-pattern', "pattern");
+  }); // document.querySelector('.statewide').classList.contains('vis') ? document.querySelector('.statewide').classList.remove("vis") : console.log("ham")
 
   document.querySelector('.statewide').classList.toggle('vis');
   console.log(document.querySelector(".statewide").classList); // console.log("statewide function");
@@ -666,19 +685,22 @@ map.on('mousemove', 'ras2', function (e) {
     currentData.sort(function (a, b) {
       return a.OrganizationName.localeCompare(b.OrganizationName);
     });
-  } else // d.ProjectLocationMatch == projLoc &&
+  } else if (currentProgram == "Foundation Initiatives") // d.ProjectLocationMatch == projLoc &&
     {
       currentData = ras_ak.filter(function (d) {
         return d.Program == featProgram && d.ProjectLocationMatch != "Nationwide";
       });
-      console.log("current unsorted");
-      console.log(currentData); // currentData.sort((a,b)=>a.OrganizationName-b.OrganizationName)
-      // currentData=  currentData.sort((a,b)=>a.OrganizationName.toUpperCase()-b.OrganizationName.toUpperCase())
-
       currentData.sort(function (a, b) {
         return a.ProjectLocation.localeCompare(b.ProjectLocation);
-      }); // console.log("current sorted");
-      //          console.log(currentData);
+      });
+    } else // d.ProjectLocationMatch == projLoc &&
+    {
+      currentData = ras_ak.filter(function (d) {
+        return d.Program == featProgram && d.ProjectLocationMatch != "Nationwide" && d.ProjectLocationMatch == projLoc;
+      });
+      currentData.sort(function (a, b) {
+        return a.ProjectLocation.localeCompare(b.ProjectLocation);
+      });
     } /////this is where the ALL grants is being messed up. 
   // switch(expression) {
   //     case n:
@@ -704,20 +726,20 @@ map.on('mousemove', 'ras2', function (e) {
   /////in here we should seperate into stateide, sitka, and anchorage by using a filter. 
 
   var currentDataStatewide = currentData.filter(function (d) {
-    return d.ProjectLocation == "Statewide";
+    return d.ProjectLocation == "Statewide" && d.OrganizationName != "The Foraker Group";
   });
   var currentDataSitka = currentData.filter(function (d) {
     return d.ProjectLocation == "Sitka";
   });
   var currentDataAnchorage = currentData.filter(function (d) {
     return d.ProjectLocation == "Anchorage";
-  });
-  console.log('the statesidea');
-  console.log(currentDataStatewide);
-  console.log('the anchorage');
-  console.log(currentDataAnchorage);
-  console.log('the sitka');
-  console.log(currentDataSitka);
+  }); // console.log('the statesidea')
+  // console.log(currentDataStatewide)
+  // console.log('the anchorage')
+  // console.log(currentDataAnchorage)
+  // console.log('the sitka')
+  // console.log(currentDataSitka)
+
   var popMultiple = currentData.map(function (el) {
     return "<h4> " + (el.OrganizationName + "\xA0\xA0") + "- <span class=\"money\">$" + el.AwardAmount.toLocaleString() + "</span></h4>\n <p class=\"indent\">" + el.Description + "</p>\n         <br />";
   });
@@ -750,8 +772,9 @@ map.on('mousemove', 'ras2', function (e) {
   // setTimeout(set, 12)
 
 
-  currentProgram == "Foundation Initiatives" ? popup.setLngLat(coordinates).setHTML(popDivFound).addTo(map) : popup.setLngLat(coordinates).setHTML(popDiv).addTo(map);
-  projLoc !== "Anchorage" && projLoc !== "Kenai" && projLoc !== "Fairbanks" && projLoc !== "Juneau" && projLoc !== "Wasilla" ? rem() : keep1();
+  currentProgram == "Foundation Initiatives" ? popup.setLngLat(coordinates).setHTML(popDivFound).addTo(map) : popup.setLngLat(coordinates).setHTML(popDiv).addTo(map); // projLoc !== "Anchorage" && projLoc !== "Kenai" && projLoc !== "Fairbanks" && projLoc !== "Juneau"  && projLoc !== "Wasilla"?  rem() : keep1();
+
+  keep1();
 
   function rem() {
     map.on('mouseleave', 'ras2', function (g) {
