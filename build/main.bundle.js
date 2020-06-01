@@ -158,7 +158,7 @@ map.on('load', function () {
     "source": "cities",
     "interactive": "false",
     "layout": (_layout = {
-      "text-field": "{Community Name}",
+      "text-field": "{ProjectLocationMatch}",
       "text-offset": [1, 5.5],
       "text-font": ["Arial Unicode MS Bold", "Open Sans Bold"],
       // "text-font": ["Fira Sans Regular"],

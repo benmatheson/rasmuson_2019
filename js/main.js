@@ -271,7 +271,7 @@ map.addLayer({
 
 
         "layout": {
-            "text-field": "{Community Name}",
+            "text-field": "{ProjectLocationMatch}",
                         "text-offset": [1, 5.5],
 
             "text-font": ["Arial Unicode MS Bold", "Open Sans Bold"],
