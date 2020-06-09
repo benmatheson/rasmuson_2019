@@ -12,8 +12,8 @@
 { "type": "Feature", "properties": { "Program": "Large Grants", "ProjectLocationMatch": "Palmer", "number": 2, "lat": 61.5934, "lon": -149.1093 }, "geometry": { "type": "Point", "coordinates": [ 2.322256797556168, 11.598303170465678 ] } },
 { "type": "Feature", "properties": { "Program": "Large Grants", "ProjectLocationMatch": "Soldotna", "number": 1, "lat": 60.4918, "lon": -151.0691 }, "geometry": { "type": "Point", "coordinates": [ 1.441319636864125, 10.459215993914912 ] } },
 { "type": "Feature", "properties": { "Program": "Small Grants", "ProjectLocationMatch": "Dillingham", "number": 2, "lat": 59.0406, "lon": -158.4656 }, "geometry": { "type": "Point", "coordinates": [ -2.293041994903595, 9.067245862212525 ] } },
-{ "type": "Feature", "properties": { "Program": "Small Grants", "ProjectLocationMatch": "Ketchikan", "number": 2, "lat": 55.3535, "lon": -131.6774 }, "geometry": { "type": "Point", "coordinates": [ 12.475661010724698, 7.427079738869043 ] } },
+{ "type": "Feature", "properties": { "Program": "Small Grants", "ProjectLocationMatch": "Kotzebue", "number": 6, "lat": 66.897222, "lon": -162.585556 }, "geometry": { "type": "Point", "coordinates": [ -3.383798948084245, 16.877436101232416 ] } },
 { "type": "Feature", "properties": { "Program": "Small Grants", "ProjectLocationMatch": "Utqiaġvik", "number": 2, "lat": 71.2891, "lon": -156.7685 }, "geometry": { "type": "Point", "coordinates": [ -0.912845142732529, 20.798213182213068 ] } },
-{ "type": "Feature", "properties": { "Program": "Small Grants", "ProjectLocationMatch": "Sitka", "number": 4, "lat": 57.0583, "lon": -135.3448 }, "geometry": { "type": "Point", "coordinates": [ 10.012390309021221, 8.423985115529669 ] } }
+{ "type": "Feature", "properties": { "Program": "Small Grants", "ProjectLocationMatch": "Dutch Harbor", "number": 2, "lat": 53.902917, "lon": -166.518389 }, "geometry": { "type": "Point", "coordinates": [ -7.35930052795135, 4.572314303915419 ] } }
 ]
 }
